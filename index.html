@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseCloud - Modern Cloud Deployment</title>
+  <meta name="description" content="A lightweight, ultra-fast modern landing page built for deployment practice." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Pulse<span class="gradient-text">Cloud</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#deploy">Deploy Guides</a>
+        <a href="#contact" class="btn btn-sm btn-primary">Get Started</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Ready for instant static hosting</span>
+        </div>
+        <h1 class="hero-title">
+          Build quickly. <br />
+          Deploy <span class="gradient-text">everywhere.</span>
+        </h1>
+        <p class="hero-subtitle">
+          A production-ready, ultra-clean static website template designed specifically for testing CI/CD pipelines, Docker containers, CDN edge networks, and static hosting platforms.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="demo-deploy-btn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            Simulate Deploy
+          </button>
+          <a href="#deploy" class="btn btn-secondary">
+            View Deploy Guides
+          </a>
+        </div>
+
+        <!-- Interactive Terminal / Code Box -->
+        <div class="code-preview-card">
+          <div class="terminal-header">
+            <div class="window-buttons">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">bash - pulse-deploy-check</div>
+            <button class="copy-btn" id="copy-btn" title="Copy snippet">Copy</button>
+          </div>
+          <pre class="terminal-body"><code id="code-snippet"><span class="c-comment"># Check deployment health status</span>
+curl -I https://your-deployed-site.com
+<span class="c-success">HTTP/2 200 OK</span>
+server: cloud-edge/1.0
+content-type: text/html; charset=UTF-8
+status: <span class="c-highlight">Deployed Successfully! 🚀</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3 class="stat-number">0</h3>
+            <p class="stat-label">External Dependencies</p>
+          </div>
+          <div class="stat-card">
+            <h3 class="stat-number">100%</h3>
+            <p class="stat-label">Lighthouse Performance</p>
+          </div>
+          <div class="stat-card">
+            <h3 class="stat-number">&lt; 15 KB</h3>
+            <p class="stat-label">Total Asset Footprint</p>
+          </div>
+          <div class="stat-card">
+            <h3 class="stat-number">&infin;</h3>
+            <p class="stat-label">Hosting Compatibility</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Built for Simple & Reliable Testing</h2>
+          <p class="section-subtitle">Everything you need to verify web servers, CDNs, SSL certs, and workflows.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Pure Static Assets</h3>
+            <p>Composed of clean HTML5, modern vanilla CSS, and JavaScript. No build steps, transpilers, or node_modules required to get started.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Zero Latency</h3>
+            <p>Ideal for CDN testing (Cloudflare, AWS CloudFront, Fastly). Blazing fast cold-start performance and instant edge cache warming.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Fully Responsive</h3>
+            <p>Designed mobile-first with CSS Grid and Flexbox. Looks stunning on smartphones, tablets, laptops, and ultra-wide displays.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🐳</div>
+            <h3>Container Friendly</h3>
+            <p>Includes ready-to-use Dockerfile and Nginx configuration templates for container registries and Kubernetes clusters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Interactive Test Widget -->
+    <section id="demo" class="demo-section">
+      <div class="container">
+        <div class="demo-box">
+          <div class="demo-content">
+            <h2>Environment & Client Inspector</h2>
+            <p>Verify that your client-side JavaScript executes properly in your deployed environment.</p>
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-key">Host Origin:</span>
+                <span class="info-val" id="info-origin">Loading...</span>
+              </div>
+              <div class="info-item">
+                <span class="info-key">Protocol / SSL:</span>
+                <span class="info-val" id="info-protocol">Loading...</span>
+              </div>
+              <div class="info-item">
+                <span class="info-key">User Agent:</span>
+                <span class="info-val" id="info-ua">Loading...</span>
+              </div>
+              <div class="info-item">
+                <span class="info-key">Last Page Load:</span>
+                <span class="info-val" id="info-time">Loading...</span>
+              </div>
+            </div>
+            <button class="btn btn-outline" id="refresh-info-btn">Refresh Inspector</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deploy Guides Reference -->
+    <section id="deploy" class="deploy-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Where Can You Deploy This?</h2>
+          <p class="section-subtitle">Since it's pure static code, you can test on any provider in under 2 minutes.</p>
+        </div>
+
+        <div class="deploy-grid">
+          <div class="deploy-card">
+            <div class="deploy-header">
+              <span class="deploy-badge">Easiest</span>
+              <h3>GitHub Pages</h3>
+            </div>
+            <p>Push to a repository, go to <strong>Settings &gt; Pages</strong>, and select the <code>main</code> branch. Live in seconds.</p>
+          </div>
+
+          <div class="deploy-card">
+            <div class="deploy-header">
+              <span class="deploy-badge">Fast</span>
+              <h3>Vercel or Netlify</h3>
+            </div>
+            <p>Connect your Git provider or drag and drop this project folder straight into their web dashboards.</p>
+          </div>
+
+          <div class="deploy-card">
+            <div class="deploy-header">
+              <span class="deploy-badge">Cloud</span>
+              <h3>AWS S3 & CloudFront</h3>
+            </div>
+            <p>Upload files to an S3 bucket configured for static website hosting, then front with CloudFront for global SSL/CDN.</p>
+          </div>
+
+          <div class="deploy-card">
+            <div class="deploy-header">
+              <span class="deploy-badge">DevOps</span>
+              <h3>Docker & Nginx</h3>
+            </div>
+            <p>Run <code>docker build -t static-site .</code> using the included Dockerfile and deploy to ECS, Render, or any VPS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section id="contact" class="cta-section">
+      <div class="container cta-container">
+        <h2>Ready to push to production?</h2>
+        <p>Start your deployment practice now. Everything is set up and configured in this directory.</p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary" onclick="alert('Congratulations! Your static website is configured and ready to be deployed.');">
+            Confirm Site Readiness
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; <span id="current-year"></span> PulseCloud. Built for deployment practice.</p>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#deploy">Guides</a>
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
